@@ -39,4 +39,7 @@ Try: https://word-unscrambler.hdkdistributionltd.workers.dev/?q=LISTEN
 
 ## Local preview
 
-`sh /workspace/startup.sh` serves the static site.
+`node dev-server.mjs` runs the real Cloudflare Worker (`worker.js`) locally on
+http://localhost:8787, serving pages and assets from this working tree so the
+site renders exactly as it does in production (routes, security headers and the
+`modern-v39.css` / `profit-v1.js` overlay included). No dependencies to install.
