@@ -1,0 +1,16 @@
+{
+  "name": "Word Unscrambler",
+  "install": "node --version",
+  "terminals": [
+    {
+      "name": "dev-server",
+      "command": "node dev-server.mjs 8787"
+    }
+  ],
+  "ports": [
+    {
+      "name": "dev-server",
+      "port": 8787
+    }
+  ]
+}
