@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en-GB" data-skip-site-inject>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Once Upon a Time Asia – Five Partitions Storytelling Cards</title>
+  <meta name="description" content="A pass-and-play storytelling card game. Five chapters from the public history of how the Indian Empire came apart, 1937 to 1971. Original cards. Not a book extract." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://lettersunscrambler.com/once-upon-a-time-asia" />
+  <meta name="theme-color" content="#0e3328" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,560;0,9..144,640;1,9..144,480&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #f6ecda;
+      --muted: #cbb89a;
+      --green: #0e3328;
+      --green-2: #164636;
+      --deep: #071912;
+      --gold: #d4b56a;
+      --magenta: #c23a64;
+      --card: #f4ead8;
+      --card-ink: #1c1710;
+      --line: rgba(212, 181, 106, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Source Sans 3", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 700px at 10% -10%, #1a5a45 0%, transparent 55%),
+        radial-gradient(900px 500px at 110% 10%, #5a1d38 0%, transparent 50%),
+        var(--deep);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><path fill='none' stroke='%23d4b56a' stroke-width='0.6' d='M0 90 Q45 40 90 90 T180 90 M90 0 Q140 45 90 90 T90 180'/></svg>");
+    }
+    .wrap { width: min(1120px, calc(100% - 32px)); margin: 0 auto; position: relative; }
+    header.appbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 0 8px; gap: 12px;
+    }
+    header a { color: var(--gold); text-decoration: none; font-size: 0.92rem; }
+    .mark {
+      font-family: Fraunces, Georgia, serif;
+      letter-spacing: -0.03em;
+      font-weight: 640;
+    }
+    h1, h2, h3 { font-family: Fraunces, Georgia, serif; letter-spacing: -0.03em; line-height: 1.12; font-weight: 640; }
+    h1 { font-size: clamp(2rem, 1.2rem + 3vw, 3.6rem); margin: 0.2em 0 0.25em; }
+    .lede { font-size: 1.15rem; max-width: 40rem; color: var(--muted); }
+    .kicker { text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.72rem; color: var(--gold); font-weight: 700; }
+    .note {
+      border: 1px solid var(--line);
+      background: rgba(7, 25, 18, 0.55);
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: var(--muted);
+      margin: 1.2rem 0 1.6rem;
+      max-width: 46rem;
+    }
+    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 1.4rem 0 2rem; }
+    button, .btn {
+      font: inherit; cursor: pointer; border: 0; border-radius: 999px;
+      padding: 0.7rem 1.15rem; background: var(--gold); color: #1c1710; font-weight: 700;
+    }
+    button.ghost, a.ghost {
+      background: transparent; color: var(--ink); border: 1px solid var(--line); text-decoration: none; display: inline-block;
+    }
+    button.magenta { background: var(--magenta); color: #fff; }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .chapter {
+      text-align: left; border-radius: 18px; padding: 18px 18px 16px;
+      background: linear-gradient(180deg, rgba(22,70,54,0.9), rgba(8,28,22,0.92));
+      border: 1px solid var(--line); color: inherit; width: 100%;
+    }
+    .chapter:hover { border-color: var(--gold); }
+    .chapter h3 { margin: 0.25rem 0 0.35rem; font-size: 1.45rem; }
+    .chapter p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .year { color: var(--gold); font-weight: 700; font-size: 0.85rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 1rem 0 2rem; }
+    .card-face {
+      background: var(--card); color: var(--card-ink); border-radius: 14px;
+      padding: 12px 12px 14px; min-height: 148px; width: 148px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+    }
+    .card-face::after {
+      content: ""; position: absolute; right: -18px; bottom: -22px; width: 70px; height: 90px;
+      background: currentColor; opacity: 0.12;
+      clip-path: polygon(40% 0, 70% 20%, 100% 10%, 85% 55%, 100% 100%, 40% 80%, 0 100%, 20% 50%);
+    }
+    .card-face .cat { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+    .card-face h3 { font-size: 1.05rem; margin: 0.35rem 0 0; }
+    .card-face .meta { font-size: 0.72rem; opacity: 0.7; }
+    .card-face.interrupt { outline: 2px solid var(--magenta); }
+    .hand, .line, .pile { display: flex; gap: 10px; overflow-x: auto; padding: 6px 2px 14px; }
+    .table {
+      background: rgba(8, 30, 24, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px 16px 20px;
+      margin: 12px 0 24px;
+    }
+    .status { color: var(--gold); margin: 0 0 8px; }
+    .log { color: var(--muted); font-size: 0.92rem; }
+    .pass {
+      min-height: 70vh; display: grid; place-items: center; text-align: center; padding: 40px 16px;
+    }
+    .pass h2 { font-size: clamp(1.8rem, 1rem + 3vw, 3rem); }
+    label { display: block; margin: 0.4rem 0 0.2rem; color: var(--muted); font-size: 0.88rem; }
+    input[type="text"], select {
+      font: inherit; padding: 0.55rem 0.7rem; border-radius: 10px; border: 1px solid var(--line);
+      background: #10291f; color: var(--ink); width: min(320px, 100%);
+    }
+    .names { display: grid; gap: 8px; margin: 1rem 0; }
+    .compendium .group { margin: 1.4rem 0 2rem; }
+    .compendium h3 { margin-bottom: 0.4rem; }
+    .end-card {
+      background: #24180f; border: 1px solid var(--gold); color: var(--ink);
+      border-radius: 14px; padding: 14px 16px; max-width: 28rem; font-family: Fraunces, Georgia, serif;
+      font-size: 1.15rem; font-style: italic;
+    }
+    .hidden-end { filter: blur(7px); user-select: none; }
+    footer.legal { color: var(--muted); font-size: 0.82rem; padding: 28px 0 48px; }
+    .toast { color: var(--gold); min-height: 1.4em; }
+    .playable { cursor: pointer; }
+    .playable:hover { transform: translateY(-3px); }
+    @media (max-width: 720px) {
+      .card-face { min-height: 132px; width: 132px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="appbar">
+      <a href="/">Word Unscrambler</a>
+      <nav>
+        <a href="#/" id="homeLink">Chapters</a>
+        &nbsp;·&nbsp;
+        <a href="#/rules">Rules</a>
+        &nbsp;·&nbsp;
+        <a href="#/compendium">All cards</a>
+      </nav>
+    </header>
+    <div id="app"></div>
+    <footer class="legal">
+      <p>Original game. Cards are public-history story prompts, not extracts from Sam Dalrymple’s <i>Shattered Lands</i> or any audiobook. Not affiliated with Atlas Games’ Once Upon a Time. Treat displacement and war with care at the table.</p>
+    </footer>
+  </div>
+  <script src="/once-upon-asia.js"></script>
+  <script>
+    (function () {
+      var G = window.OnceUponAsia;
+      var root = document.getElementById("app");
+      var ui = {
+        view: "home",
+        chapterId: null,
+        playerCount: 3,
+        names: ["", "", ""],
+        game: null,
+        showEnding: false,
+        passFor: null,
+        claimer: null,
+        toast: ""
+      };
+
+      function $(html) { return html; }
+
+      function hash() {
+        var h = (location.hash || "#/").replace(/^#/, "");
+        if (h.indexOf("/play") === 0) return "play";
+        if (h.indexOf("/setup/") === 0) return "setup";
+        if (h.indexOf("/chapter/") === 0) return "chapter";
+        if (h === "/rules") return "rules";
+        if (h === "/compendium") return "compendium";
+        if (h.indexOf("/browse/") === 0) return "browse";
+        if (h === "/win") return "win";
+        return "home";
+      }
+
+      function go(path) {
+        location.hash = path;
+      }
+
+      function catLabel(c) {
+        return G.CATS[c] ? G.CATS[c].label : c;
+      }
+      function catHue(c) {
+        return G.CATS[c] ? G.CATS[c].hue : "#6b3e22";
+      }
+
+      function renderCard(c, opts) {
+        opts = opts || {};
+        var cls = "card-face" + (c.interrupt ? " interrupt" : "") + (opts.playable ? " playable" : "");
+        var hue = catHue(c.category);
+        var ch = G.chapterById(c.chapter);
+        return '<button type="button" class="' + cls + '" data-id="' + c.id + '" style="color:' + hue + '"' +
+          (opts.disabled ? " disabled" : "") + ">" +
+          '<div><div class="cat">' + catLabel(c.category) + (c.interrupt ? " · Interrupt" : "") + "</div>" +
+          "<h3>" + escapeHtml(c.title) + "</h3></div>" +
+          '<div class="meta">' + (ch ? "Ch. " + ch.roman : "") + "</div></button>";
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, function (ch) {
+          return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[ch];
+        });
+      }
+
+      function home() {
+        var cards = G.CHAPTERS.map(function (ch) {
+          return '<button class="chapter" type="button" data-go="#/chapter/' + ch.id + '">' +
+            '<div class="kicker">Chapter ' + ch.roman + "</div>" +
+            "<h3>" + ch.title + "</h3>" +
+            '<div class="year">' + ch.year + " · " + ch.map + "</div>" +
+            "<p>" + ch.play + "</p></button>";
+        }).join("");
+        cards += '<button class="chapter" type="button" data-go="#/chapter/empire">' +
+          '<div class="kicker">Campaign</div><h3>' + G.EMPIRE.title + "</h3>" +
+          '<div class="year">' + G.EMPIRE.year + " · " + G.EMPIRE.map + "</div>" +
+          "<p>" + G.EMPIRE.play + "</p></button>";
+        var n = G.counts();
+        return '<p class="kicker">Storytelling card game</p><h1>Once Upon a Time Asia</h1>' +
+          '<p class="lede">Five chapters. One shattered map. Tell a tale from the public history of how the Indian Empire came apart — and steer it toward the secret ending in your hand.</p>' +
+          '<div class="note">I cannot extract or transcribe <i>Shattered Lands</i>, even from an audiobook you own. These chapters follow the five partitions named on the publisher page (Burma 1937, the Arabian shore, 1947, the princely states, Bangladesh 1971). The cards are original story prompts, not the book’s prose.</div>' +
+          '<p class="log">' + n.story + " story cards · " + n.interrupts + " interrupts · " + n.endings + " endings</p>" +
+          '<div class="grid">' + cards + "</div>";
+      }
+
+      function chapterView(id) {
+        var ch = G.chapterById(id);
+        if (!ch) return home();
+        ui.chapterId = id;
+        return '<p class="kicker">Chapter ' + ch.roman + "</p><h1>" + ch.title + "</h1>" +
+          '<p class="year">' + ch.year + " · " + ch.map + "</p>" +
+          '<p class="lede">' + ch.summary + "</p>" +
+          '<div class="actions">' +
+          '<button type="button" data-go="#/setup/' + id + '">Deal this chapter</button>' +
+          '<button class="ghost" type="button" data-go="#/browse/' + id + '">See every card</button>' +
+          '<button class="ghost" type="button" data-go="#/">All chapters</button>' +
+          "</div>";
+      }
+
+      function setupView(id) {
+        ui.chapterId = id;
+        var rows = "";
+        for (var i = 0; i < ui.playerCount; i++) {
+          rows += '<label>Player ' + (i + 1) + ' <input type="text" data-name="' + i + '" maxlength="24" placeholder="Name" value="' + escapeHtml(ui.names[i] || "") + '"></label>';
+        }
+        return '<p class="kicker">Pass-and-play</p><h1>Who is at the table?</h1>' +
+          '<p class="lede">One device. Hide your hand when you pass it. One player is practice mode: no interrupts, just tell the tale to your ending.</p>' +
+          '<label>Players <select id="pc">' +
+          [1,2,3,4,5,6].map(function (n) {
+            return '<option value="' + n + '"' + (n === ui.playerCount ? " selected" : "") + ">" + n + "</option>";
+          }).join("") + "</select></label>" +
+          '<div class="names">' + rows + "</div>" +
+          '<div class="actions"><button type="button" id="dealBtn">Deal the chapter</button>' +
+          '<button class="ghost" type="button" data-go="#/chapter/' + id + '">Back</button></div>';
+      }
+
+      function browseView(id) {
+        var ch = G.chapterById(id);
+        var story = G.storyFor(id);
+        var ends = G.endingsFor(id);
+        var groups = "";
+        Object.keys(G.CATS).forEach(function (cat) {
+          var pile = story.filter(function (c) { return c.category === cat; });
+          groups += '<div class="group"><h3>' + G.CATS[cat].label + "</h3><div class=\"hand\">" +
+            pile.map(function (c) { return renderCard(c); }).join("") + "</div></div>";
+        });
+        groups += '<div class="group"><h3>Endings</h3>' + ends.map(function (e) {
+          return '<p class="end-card" style="margin:8px 0">' + escapeHtml(e.text) + "</p>";
+        }).join("") + "</div>";
+        return '<p class="kicker">' + (ch ? "Chapter " + ch.roman : "") + '</p><h1>Card list</h1>' +
+          '<p class="lede">' + (ch ? ch.title : "") + " — " + story.length + " story cards, " + ends.length + " endings.</p>" +
+          '<div class="actions"><button type="button" data-go="#/setup/' + id + '">Deal this chapter</button>' +
+          '<button class="ghost" type="button" data-go="#/chapter/' + id + '">Chapter</button></div>' +
+          '<div class="compendium">' + groups + "</div>";
+      }
+
+      function rulesView() {
+        return '<p class="kicker">How to play</p><h1>Tell the tale. Steal the tale.</h1>' +
+          '<p class="lede">A hot-seat game for 1–6. Original rules in the storytelling-card tradition — not Atlas Games’ text.</p>' +
+          "<ol>" +
+          "<li>Each player gets story cards and one secret ending. Hand size is eleven minus the number of players (minimum five).</li>" +
+          "<li>The storyteller speaks freely. When an element on a card in their hand becomes important to the tale, they play that card onto the table.</li>" +
+          "<li>After a card is played, anyone holding an <b>Interrupt</b> of the same category (Person, Place, Thing, Aspect, Event) may snatch the tale. The old storyteller draws a card.</li>" +
+          "<li>If you stall, contradict the table, or cannot go on, pass. Draw a card. The tale moves left.</li>" +
+          "<li>When your hand is empty, read your ending. If the table agrees it closes the story, you win. If not, take a new ending, draw a story card, and pass the tale.</li>" +
+          "<li>Keep the tone adult and careful. Do not turn exile, massacre, or famine into a punchline.</li>" +
+          "</ol>" +
+          '<div class="actions"><button type="button" data-go="#/">Choose a chapter</button></div>';
+      }
+
+      function compendiumView() {
+        var list = G.CHAPTERS.map(function (ch) {
+          return '<button class="chapter" type="button" data-go="#/browse/' + ch.id + '"><div class="kicker">Chapter ' + ch.roman + "</div><h3>" + ch.title + "</h3><p>Browse the deck</p></button>";
+        }).join("");
+        list += '<button class="chapter" type="button" data-go="#/browse/empire"><div class="kicker">Campaign</div><h3>Every card</h3><p>Mixed empire deck</p></button>';
+        return '<p class="kicker">Compendium</p><h1>All chapters, all cards</h1><div class="grid">' + list + "</div>";
+      }
+
+      function passView() {
+        var g = ui.game;
+        var p = g.players[ui.passFor];
+        var msg = g.phase === "interrupt" ? "Someone may interrupt. If that is you, take the device." :
+          g.phase === "ending" ? "The table should see this ending." :
+          "Hide the last hand. Pass the device.";
+        return '<div class="pass"><p class="kicker">' + msg + "</p><h2>" + escapeHtml(p.name) + "</h2>" +
+          '<p class="lede">Tap when the others cannot see the screen.</p>' +
+          '<button type="button" id="revealBtn">This is ' + escapeHtml(p.name) + "</button></div>";
+      }
+
+      function tableView() {
+        var g = ui.game;
+        var p = g.players[g.storyteller];
+        var line = g.line.map(function (c) { return renderCard(c); }).join("") || "<p class='log'>No cards yet.</p>";
+        var hand = p.hand.map(function (c) {
+          var can = g.phase === "story";
+          return renderCard(c, { playable: can, disabled: !can });
+        }).join("");
+        var endCls = "end-card" + (ui.showEnding ? "" : " hidden-end");
+        var interruptBar = "";
+        if (g.phase === "interrupt") {
+          interruptBar = '<div class="actions">' +
+            g.players.map(function (pl, i) {
+              if (i === g.storyteller) return "";
+              var has = pl.hand.some(function (c) { return c.interrupt && c.category === g.pending.category; });
+              if (!has) return "";
+              return '<button class="magenta" type="button" data-pass="' + i + '">' + escapeHtml(pl.name) + " interrupts</button>";
+            }).join("") +
+            '<button class="ghost" type="button" id="noInterrupt">No interrupt</button></div>' +
+            '<p class="log">Waiting on an Interrupt of category: ' + catLabel(g.pending.category) + "</p>";
+        }
+        var endingBar = "";
+        if (g.phase === "ending") {
+          endingBar = '<p class="lede">Empty hand. Does this close the tale?</p>' +
+            '<p class="end-card">' + escapeHtml(p.ending.text) + "</p>" +
+            '<div class="actions"><button type="button" id="yesEnd">The table accepts</button>' +
+            '<button class="ghost magenta" type="button" id="noEnd">It does not land</button></div>';
+        }
+        var otherHands = "";
+        if (g.phase === "interrupt" && ui.claimer != null) {
+          var cp = g.players[ui.claimer];
+          otherHands = '<h3>' + escapeHtml(cp.name) + " — play an interrupt</h3><div class=\"hand\">" +
+            cp.hand.filter(function (c) { return c.interrupt && c.category === g.pending.category; })
+              .map(function (c) { return renderCard(c, { playable: true }); }).join("") + "</div>";
+        }
+        return '<p class="kicker">' + G.chapterById(g.chapterId).title + '</p>' +
+          '<h2>' + (g.phase === "ending" ? "Ending" : "Storyteller") + ": " + escapeHtml(p.name) + "</h2>" +
+          '<p class="status">' + g.players.map(function (pl, i) {
+            return escapeHtml(pl.name) + " (" + pl.hand.length + ")" + (i === g.storyteller ? " · telling" : "");
+          }).join(" · ") + "</p>" +
+          '<div class="table"><p class="kicker">The tale so far</p><div class="line">' + line + "</div>" +
+          '<p class="log">' + escapeHtml(g.log[g.log.length - 1] || "") + "</p></div>" +
+          interruptBar + endingBar + otherHands +
+          (g.phase === "story" ? ('<p class="kicker">Your story cards</p><div class="hand" id="myHand">' + hand + "</div>" +
+            '<p class="kicker">Secret ending</p><p class="' + endCls + '" id="endingText">' + escapeHtml(p.ending.text) + "</p>" +
+            '<div class="actions"><button class="ghost" type="button" id="toggleEnd">Show / hide ending</button>' +
+            '<button class="ghost" type="button" id="passTale">Pass the tale</button>' +
+            '<button class="ghost" type="button" data-go="#/">Quit to chapters</button></div>') : "") +
+          '<p class="toast">' + escapeHtml(ui.toast) + "</p>";
+      }
+
+      function winView() {
+        var g = ui.game;
+        var w = g.players[g.winner];
+        var line = g.line.map(function (c) { return renderCard(c); }).join("");
+        return '<p class="kicker">The tale is finished</p><h1>' + escapeHtml(w.name) + " wins</h1>" +
+          '<p class="end-card">' + escapeHtml(w.ending.text) + "</p>" +
+          '<div class="line" style="margin-top:16px">' + line + "</div>" +
+          '<div class="actions"><button type="button" data-go="#/setup/' + g.chapterId + '">Deal again</button>' +
+          '<button class="ghost" type="button" data-go="#/">Chapters</button></div>';
+      }
+
+      function render() {
+        var view = hash();
+        ui.view = view;
+        var html = "";
+        if (view === "rules") html = rulesView();
+        else if (view === "compendium") html = compendiumView();
+        else if (view === "chapter") html = chapterView((location.hash.split("/")[2] || "").replace(/[^a-z]/g, ""));
+        else if (view === "browse") html = browseView((location.hash.split("/")[2] || "").replace(/[^a-z]/g, ""));
+        else if (view === "setup") html = setupView((location.hash.split("/")[2] || "").replace(/[^a-z]/g, ""));
+        else if (view === "play") {
+          if (!ui.game) { go("#/"); html = home(); }
+          else if (ui.passFor != null) html = passView();
+          else html = tableView();
+        } else if (view === "win") html = ui.game ? winView() : home();
+        else html = home();
+        root.innerHTML = html;
+        bind();
+      }
+
+      function startDeal() {
+        var id = ui.chapterId;
+        var names = [];
+        for (var i = 0; i < ui.playerCount; i++) names.push((ui.names[i] || "").trim() || ("Player " + (i + 1)));
+        ui.game = G.deal(id, names);
+        ui.showEnding = ui.playerCount === 1;
+        ui.claimer = null;
+        ui.toast = "";
+        ui.passFor = ui.playerCount > 1 ? 0 : null;
+        go("#/play");
+      }
+
+      function afterTellerChange() {
+        if (ui.game.players.length > 1) ui.passFor = ui.game.storyteller;
+        ui.claimer = null;
+        ui.showEnding = ui.game.players.length === 1;
+      }
+
+      function bind() {
+        root.querySelectorAll("[data-go]").forEach(function (el) {
+          el.addEventListener("click", function () { go(el.getAttribute("data-go")); });
+        });
+        var pc = document.getElementById("pc");
+        if (pc) pc.addEventListener("change", function () {
+          ui.playerCount = parseInt(pc.value, 10);
+          while (ui.names.length < ui.playerCount) ui.names.push("");
+          ui.names = ui.names.slice(0, ui.playerCount);
+          render();
+        });
+        root.querySelectorAll("[data-name]").forEach(function (inp) {
+          inp.addEventListener("input", function () {
+            ui.names[parseInt(inp.getAttribute("data-name"), 10)] = inp.value;
+          });
+        });
+        var dealBtn = document.getElementById("dealBtn");
+        if (dealBtn) dealBtn.addEventListener("click", startDeal);
+        var reveal = document.getElementById("revealBtn");
+        if (reveal) reveal.addEventListener("click", function () { ui.passFor = null; render(); });
+        var toggle = document.getElementById("toggleEnd");
+        if (toggle) toggle.addEventListener("click", function () { ui.showEnding = !ui.showEnding; render(); });
+        var pass = document.getElementById("passTale");
+        if (pass) pass.addEventListener("click", function () {
+          G.passTale(ui.game);
+          afterTellerChange();
+          render();
+        });
+        var noInt = document.getElementById("noInterrupt");
+        if (noInt) noInt.addEventListener("click", function () {
+          G.declineInterrupt(ui.game);
+          ui.claimer = null;
+          render();
+        });
+        root.querySelectorAll("[data-pass]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            ui.passFor = parseInt(btn.getAttribute("data-pass"), 10);
+            ui.claimer = ui.passFor;
+            render();
+          });
+        });
+        var yesEnd = document.getElementById("yesEnd");
+        if (yesEnd) yesEnd.addEventListener("click", function () {
+          G.acceptEnding(ui.game);
+          go("#/win");
+        });
+        var noEnd = document.getElementById("noEnd");
+        if (noEnd) noEnd.addEventListener("click", function () {
+          G.rejectEnding(ui.game);
+          afterTellerChange();
+          render();
+        });
+        var hand = document.getElementById("myHand");
+        if (hand) hand.querySelectorAll(".playable").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var r = G.playCard(ui.game, btn.getAttribute("data-id"));
+            if (!r.ok) { ui.toast = "That card cannot be played now."; render(); return; }
+            ui.toast = "";
+            if (r.ending) { ui.passFor = ui.game.players.length > 1 ? ui.game.storyteller : null; render(); return; }
+            if (r.interruptWindow) {
+              ui.passFor = null;
+              ui.claimer = null;
+              render();
+              return;
+            }
+            render();
+          });
+        });
+        if (ui.game && ui.game.phase === "interrupt" && ui.claimer != null && ui.passFor == null) {
+          root.querySelectorAll(".playable").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              var r = G.interrupt(ui.game, ui.claimer, btn.getAttribute("data-id"));
+              if (!r.ok) { ui.toast = "That is not a valid interrupt."; render(); return; }
+              afterTellerChange();
+              if (r.ending) render();
+              else render();
+            });
+          });
+        }
+      }
+
+      window.addEventListener("hashchange", render);
+      render();
+    })();
+  </script>
+</body>
+</html>

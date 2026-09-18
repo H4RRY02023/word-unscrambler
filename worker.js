@@ -61,6 +61,7 @@ const ROUTES = {
   "/terms": "terms.html",
   "/contact": "contact.html",
   "/feedback": "feedback.html",
+  "/once-upon-a-time-asia": "once-upon-a-time-asia.html",
   "/unscramble": "unscramble.html",
   "/unscramble/listen": "unscramble-listen.html",
   "/unscramble/aeinrst": "unscramble-aeinrst.html",
@@ -86,7 +87,7 @@ const ROUTES = {
   "/security.txt": "security.txt"
 };
 const ALLOW = new Set(Object.values(ROUTES).concat([
-  "styles.css","app.js","favicon.svg","og.jpg","stage.jpg","wood.jpg","robots.txt","sitemap.xml","404.html","ads.txt","manifest.webmanifest","llms.txt","llms-full.txt","b7e4c91a0f3d68e25a14c0b9d8e7f612.txt","8d7c4a91b2e05f63c1a47d90e8b6f352.txt","BingSiteAuth.xml","modern-v38.css","modern-v39.css","modern-v37.css","modern-v35.css","modern-v34.css","modern-v32.css","profit-v1.js","feedback.html","guide-blank-tiles.html","guide-scrabble-vs-wwf.html","guide-wordle-starters.html","guide-pattern-solver.html","guide-how-to-unscramble.html","security.txt","unscramble-eagle.html","unscramble-airbag.html","unscramble-pallet.html"
+  "styles.css","app.js","favicon.svg","og.jpg","stage.jpg","wood.jpg","robots.txt","sitemap.xml","404.html","ads.txt","manifest.webmanifest","llms.txt","llms-full.txt","b7e4c91a0f3d68e25a14c0b9d8e7f612.txt","8d7c4a91b2e05f63c1a47d90e8b6f352.txt","BingSiteAuth.xml","modern-v38.css","modern-v39.css","modern-v37.css","modern-v35.css","modern-v34.css","modern-v32.css","profit-v1.js","feedback.html","guide-blank-tiles.html","guide-scrabble-vs-wwf.html","guide-wordle-starters.html","guide-pattern-solver.html","guide-how-to-unscramble.html","security.txt","unscramble-eagle.html","unscramble-airbag.html","unscramble-pallet.html","once-upon-a-time-asia.html","once-upon-asia.js"
 ]));
 const LONG = new Set(["css","js","svg","jpg","webmanifest"]);
 const MIME = {
@@ -238,6 +239,7 @@ async function pull(name) {
 }
 function injectModern(htmlBuf) {
   let out = new TextDecoder().decode(htmlBuf);
+  if (out.indexOf("data-skip-site-inject") !== -1) return new TextEncoder().encode(out).buffer;
   out = out.replace(/<meta name="twitter:site"[^>]*>\n?/g, "");
   out = out.replace(/,"sameAs":\["https:\/\/x\.com\/h4_rry2"\]/g, "");
   out = out.replace(/"sameAs":\["https:\/\/x\.com\/h4_rry2"\],/g, "");
